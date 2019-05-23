@@ -1,0 +1,26 @@
+<div class="row mx-5">
+    <div class="col-5">
+    	<%= image_tag @product.images[0], :size => "600x600", class: "mb-3 mx-auto d-block" %>
+        <div class="row">
+        	<% if @product.images.present? %>
+	        	<% @product.images.each do |image| %>
+		            <a href="<%=image%>" data-toggle="lightbox" data-gallery="example-gallery" class="col-3">
+		                <img src="<%=image%>" class="img-fluid">
+		            </a>
+	            <%end%>
+            <%end%>
+        </div>
+    </div>
+    <div class="col-1"> </div>
+    <div class="col-5">
+    	<h3 class="display-4 my-4"> <%= @product.name %> </h3>
+    	<hr>
+    	<h5 class="my-4"> Brand: <%= @product.brand %> </h5>
+    	<hr>
+    	<p class="lead my-4"> <%= simple_format @product.description %> </p>
+    	<hr>
+    	<h2 class="my-4"> Rs. <%= number_with_delimiter(@product.price.to_i, :delimiter => ',') %> </h2>
+
+    	<a class="btn btn-info btn-lg my-5" href="#"> Add To Cart </a>
+    </div>
+</div>

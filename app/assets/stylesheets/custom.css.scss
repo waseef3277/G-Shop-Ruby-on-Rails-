@@ -4,5 +4,15 @@ abbr, accronym{
 	text-decoration: none !important;
 }
 
+#product_item a{
+	color: black;
+	text-decoration: none;
+}
+
+#product_item a:hover{
+	color:black;
+	text-decoration: none;
+}
 
 @import "bootstrap";
+@import "lightbox-bootstrap";

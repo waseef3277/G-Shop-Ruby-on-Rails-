@@ -1,0 +1,19 @@
+<% @products.each_slice(6) do |products| %>
+  <div class="row my-5 mx-5" id="product_item">
+    <% products.each do |product| %>
+      <%= link_to product_path(product) do %>
+        <div class="col-4">
+          <div class="card card-light" style="width:290px;height:380px;">
+            <div class="card-body">
+              <%= image_tag product.images[0], :size => "250x250", class: "mx-auto" %>
+              <h5 class="text-center"> Rs. <%= number_with_delimiter(product.price.to_i, :delimiter => ',') %> </h5>
+              <h6> <%= product.name %> </h6>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+<%end%>
+
+<br>
