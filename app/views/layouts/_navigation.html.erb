@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info mb-5">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <%= link_to "G-Shop", root_path, class: "navbar-brand font-weight-bold" %>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.name %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <%else%>
+        <li class="nav-item <%= 'active' if current_page?(new_user_registration_path) %>">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+        </li>
+      <%end%>
+    </ul>
+    </form>
+  </div>
+</nav>
