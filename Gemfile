@@ -37,7 +37,7 @@ gem 'jquery-rails'
 gem 'lightbox-bootstrap-rails', '5.1.0.1'
 gem 'simple_form'
 gem 'devise'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "mini_magick"
 
 group :development, :test do
